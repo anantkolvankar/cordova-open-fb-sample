@@ -45,6 +45,19 @@
 
     //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
     //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+    function displayProfile(status){
+        var profile = document.querySelector(".profile");
+        var loginButton = document.querySelector(".login-btn");        
+        if(status){
+            getInfo();
+            profile.classList.remove("hidden");
+            loginButton.classList.add("hidden");
+        }else{
+            profile.classList.add("hidden");
+            loginButton.classList.remove("hidden");
+        }
+        
+    }
     function login() {
         openFB.login(
 
@@ -116,23 +129,7 @@
     function errorHandler(error) {
         alert(error.message);
     }
-    /*
-    * Used to display content based on login status
-    * params status true/false
-    */
-    function displayProfile(status){
-        var profile = document.querySelector(".profile");
-        var loginButton = document.querySelector(".login-btn");  
 
-        if(status){
-            getInfo();
-            profile.classList.remove("hidden");
-            loginButton.classList.add("hidden");
-        }else{
-            profile.classList.add("hidden");
-            loginButton.classList.remove("hidden");
-        }
-    }
 </script>
 </body>
 </html>
